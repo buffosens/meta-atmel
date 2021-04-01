@@ -6,7 +6,7 @@ COMPATIBLE_MACHINE = '(sama5d3xek|sama5d3-xplained|sama5d3-xplained-sd|at91sam9x
 
 SRC_URI = "git://github.com/buffosens/at91bootstrap.git;protocol=https"
 
-PV = "3.10.2+git${SRCPV}"
-SRCREV = "2edb4dd14120c7b6d5794e496ecabf274095d1f5"
+PV = "V1.6_SWARCO+git${SRCPV}"
+SRCREV = "06dcc7f072a922c72fc22d334c9c162469d572b8"
 
 S = "${WORKDIR}/git"

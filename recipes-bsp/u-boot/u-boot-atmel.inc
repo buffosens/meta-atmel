@@ -3,6 +3,10 @@ HOMEPAGE = "http://www.denx.de/wiki/U-Boot/WebHome"
 SECTION = "bootloaders"
 PROVIDES = "u-boot virtual/bootloader"
 
+# VoWe: added from here: https://docs.mender.io/system-updates-yocto-project/board-integration/bootloader-support/u-boot
+PROVIDES += "u-boot"
+RPROVIDES_${PN} += "u-boot"
+
 inherit uboot-config deploy
 
 EXTRA_OEMAKE = 'CROSS_COMPILE=${TARGET_PREFIX} CC="${TARGET_PREFIX}gcc ${TOOLCHAIN_OPTIONS}" HOSTCC="${BUILD_CC} ${BUILD_CFLAGS} ${BUILD_LDFLAGS}"'

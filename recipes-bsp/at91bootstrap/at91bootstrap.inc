@@ -7,8 +7,8 @@ DESCRIPTION = " \
 		main memory and start it.                                    \
 	      "
 AUTHOR = "Atmel Corporation"
-HOMEPAGE = "http://www.at91.com/linux4sam/bin/view/Linux4SAM/AT91Bootstrap"
-BUGTRACKER = "https://github.com/linux4sam/at91bootstrap/issues"
+HOMEPAGE = "http://www.at91.com/buffosens/bin/view/Linux4SAM/AT91Bootstrap"
+BUGTRACKER = "https://github.com/buffosens/at91bootstrap/issues"
 SECTION = "bootloaders"
 LICENSE = "ATMEL"
 LIC_FILES_CHKSUM = "file://main.c;endline=27;md5=42f86d2f6fd17d1221c5c651b487a07f"
@@ -22,6 +22,7 @@ AT91BOOTSTRAP_MACHINE ??= "${MACHINE}"
 AT91BOOTSTRAP_CONFIG ??= "${AT91BOOTSTRAP_MACHINE}nf_uboot"
 AT91BOOTSTRAP_CONFIG_at91sam9x5ek-sd ??= "${AT91BOOTSTRAP_MACHINE}sd_uboot"
 AT91BOOTSTRAP_CONFIG_sama5d3-xplained-sd ??= "${AT91BOOTSTRAP_MACHINE}sd_uboot"
+AT91BOOTSTRAP_CONFIG_scc-air-v2 ??= "${AT91BOOTSTRAP_MACHINE}sd_uboot"
 AT91BOOTSTRAP_CONFIG_sama5d4ek ??= "${AT91BOOTSTRAP_MACHINE}nf_uboot_secure"
 AT91BOOTSTRAP_CONFIG_sama5d4-xplained ??= "${AT91BOOTSTRAP_MACHINE}nf_uboot_secure"
 AT91BOOTSTRAP_CONFIG_sama5d4-xplained-sd ??= "${AT91BOOTSTRAP_MACHINE}sd_uboot_secure"
@@ -43,11 +44,11 @@ AT91BOOTSTRAP_LOAD ??= "nandflashboot-uboot"
 AT91BOOTSTRAP_LOAD_at91sam9x5ek-sd ??= "sdboot-uboot"
 AT91BOOTSTRAP_LOAD_sama5d2-xplained ??= "dataflashboot-uboot"
 AT91BOOTSTRAP_LOAD_sama5d2-xplained-sd ??= "sdboot-uboot"
-AT91BOOTSTRAP_LOAD_sama5d27-ptc-ek-sd ??= "sdboot-uboot"
 AT91BOOTSTRAP_LOAD_sama5d27-som1-ek ??= "qspiboot-uboot"
 AT91BOOTSTRAP_LOAD_sama5d27-som1-ek-sd ??= "sdboot-uboot"
 AT91BOOTSTRAP_LOAD_sama5d27-wlsom1-ek-sd ??= "sdboot-uboot"
 AT91BOOTSTRAP_LOAD_sama5d3-xplained-sd ??= "sdboot-uboot"
+AT91BOOTSTRAP_LOAD_scc-air-v2 ??= "sdboot-uboot"
 AT91BOOTSTRAP_LOAD_sama5d4-xplained-sd ??= "sdboot-uboot"
 AT91BOOTSTRAP_LOAD_sama5d2-icp-sd ??= "sdboot-uboot"
 AT91BOOTSTRAP_LOAD_sam9x60ek-sd ??= "sdboot-uboot"
@@ -77,7 +78,7 @@ do_configure() {
 	fi
 
 	if [ ! -f "${S}/.config" ]; then
-		bbfatal "No config files found"
+		bbfatal "No config files found in ${S}/board/${AT91BOOTSTRAP_MACHINE}/${AT91BOOTSTRAP_TARGET}"
 	fi
 
 	cml1_do_configure
